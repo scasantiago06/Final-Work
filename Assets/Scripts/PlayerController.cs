@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         spawn = GameObject.Find("Spawn").transform;
         rb = GetComponent<Rigidbody>();
+        
     }
 
     private void Start()
@@ -48,14 +49,20 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(Move());
     }
 
-    //private void Update()
-    //{
+    private void Update()
+    {
+        if(rb.IsSleeping())
+        {
+            rb.WakeUp();
+        }
     //    if(transform.position.y <= -5)
     //    {
     //        StopCoroutine(Move());
     //        StartCoroutine(Move());
     //    }
-    //}
+    }
+
+        
 
     void FixedUpdate()
     {
@@ -91,10 +98,10 @@ public class PlayerController : MonoBehaviour
             UIManager.ModifyCollectablesText(PlayerInfo.TotalCubies, PlayerInfo.TotalStars);
         }
     }
-
+    
     IEnumerator Move()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         playerState = PlayerStates.Moving;
     }
 }

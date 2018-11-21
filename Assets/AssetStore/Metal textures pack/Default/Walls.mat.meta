@@ -1,5 +1,11 @@
 fileFormatVersion: 2
-guid: 5c02591794acece409986647ed6329a7
+guid: 062fc28866398344c94429cda3d3cfd8
+labels:
+- Metal
+- Pattern
+- Raw
+- Rough
+- Copper
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

@@ -6,20 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    static Text cubieText;
     static Text starText;
     static Text deathText;
 
     private void Awake()
     {
-        cubieText = GameObject.Find("TotalCubies").GetComponent<Text>();
         starText = GameObject.Find("TotalStars").GetComponent<Text>();
         deathText = GameObject.Find("TotalDeaths").GetComponent<Text>();
     }
 
     public static void ModifyCollectablesText(int amountCubies, int amountStars)
     {
-        cubieText.text = amountCubies.ToString();
         starText.text = amountStars.ToString();
     }
 
@@ -27,12 +24,7 @@ public class UIManager : MonoBehaviour
     {
         deathText.text = amountDeaths.ToString();
     }
-
-    public void ChangeScene(string sceneToLoad)
-    {
-        SceneManager.LoadScene(sceneToLoad);
-    }
-
+    
     public void ActiveDesactiveUIObjects(GameObject UIObject)
     {
         if (UIObject.activeInHierarchy)
@@ -43,5 +35,10 @@ public class UIManager : MonoBehaviour
         {
             UIObject.SetActive(true);
         }
+    }
+
+    public void ChangeScene(string sceneToLoad)
+    {
+        SceneManager.LoadScene(sceneToLoad);
     }
 }

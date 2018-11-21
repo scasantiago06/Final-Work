@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4693944047225948}
   - component: {fileID: 33856351818648732}
   - component: {fileID: 23018243447526158}
-  - component: {fileID: 64965965044382356}
   - component: {fileID: 114545120648306972}
   - component: {fileID: 114178881446765186}
+  - component: {fileID: 65646674671507590}
   m_Layer: 0
   m_Name: Shuriken3
   m_TagString: LethalObject
@@ -57,9 +57,9 @@ GameObject:
   - component: {fileID: 4955403152982458}
   - component: {fileID: 33585330027103354}
   - component: {fileID: 23874259629171462}
-  - component: {fileID: 64770845351136242}
   - component: {fileID: 114919544868134278}
   - component: {fileID: 114201648801848226}
+  - component: {fileID: 65008674483910168}
   m_Layer: 0
   m_Name: Shuriken3 (2)
   m_TagString: LethalObject
@@ -104,9 +104,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1755275700011264}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: -0, z: -0.17364816, w: 0.9848078}
+  m_LocalPosition: {x: 0.89467376, y: -0.32244205, z: 1.4}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4406857603593552}
   - {fileID: 4720378306811920}
@@ -120,8 +120,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1359951616860672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 7.5, y: 0, z: 0.5}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4693944047225948}
   m_Father: {fileID: 4067273323438968}
@@ -147,8 +147,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1605733371150028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: -0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6, y: 0, z: -0.5}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4955403152982458}
   m_Father: {fileID: 4067273323438968}
@@ -251,8 +251,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1148322041214796}
   m_Mesh: {fileID: 4300000, guid: dc8ef10bf6e0da947a2fd74a47fb17b4, type: 3}
---- !u!64 &64770845351136242
-MeshCollider:
+--- !u!65 &65008674483910168
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -260,13 +260,11 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: dc8ef10bf6e0da947a2fd74a47fb17b4, type: 3}
---- !u!64 &64965965044382356
-MeshCollider:
+  serializedVersion: 2
+  m_Size: {x: 0.12, y: 0.0037980992, z: 0.12}
+  m_Center: {x: 0, y: 0.000000074505806, z: -0.00000000372529}
+--- !u!65 &65646674671507590
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -274,11 +272,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: dc8ef10bf6e0da947a2fd74a47fb17b4, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.12, y: 0.0037980992, z: 0.12}
+  m_Center: {x: 0, y: 0.00000017881393, z: -0.00000024214387}
 --- !u!114 &114178881446765186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -328,8 +324,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightMovement: 0
-  movementSpeed: 5
-  movementRate: 1
+  movementSpeed: 2
+  movementRate: 6.75
 --- !u!114 &114599582255205314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -342,8 +338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightMovement: 1
-  movementSpeed: 5
-  movementRate: 1
+  movementSpeed: 2
+  movementRate: 6.75
 --- !u!114 &114919544868134278
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -23,10 +23,10 @@ GameObject:
   - component: {fileID: 23991513013929388}
   - component: {fileID: 114925020749330528}
   - component: {fileID: 114040526394134014}
-  - component: {fileID: 64681323734370850}
+  - component: {fileID: 65899687352302592}
   m_Layer: 0
   m_Name: Shuriken6
-  m_TagString: Untagged
+  m_TagString: LethalObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,10 +37,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1338729847860026}
-  m_LocalRotation: {x: 0.000000021855694, y: 0.00000008742278, z: -1.9106855e-15,
-    w: 1}
-  m_LocalPosition: {x: 7.5, y: 0, z: 4.5}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalRotation: {x: 0.000000036704463, y: 0.00000008229943, z: -0.17364816, w: 0.9848078}
+  m_LocalPosition: {x: 1.6165444, y: -0.5319726, z: 1.0500001}
+  m_LocalScale: {x: 0.49999997, y: 0.49999997, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -87,8 +86,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1338729847860026}
   m_Mesh: {fileID: 4300000, guid: 5a0feb2bb6863ba4389a97eb87ff2eff, type: 3}
---- !u!64 &64681323734370850
-MeshCollider:
+--- !u!65 &65899687352302592
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -96,11 +95,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 5a0feb2bb6863ba4389a97eb87ff2eff, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.08888394, y: 0.00244305, z: 0.08888394}
+  m_Center: {x: 0.0000000037252903, y: 0.000000007450581, z: 0.00000024214387}
 --- !u!114 &114040526394134014
 MonoBehaviour:
   m_ObjectHideFlags: 1
