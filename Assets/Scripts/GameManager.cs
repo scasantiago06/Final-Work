@@ -2,11 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public enum GameScreens { MainMenu, Level_1, Level_2, Level_3, Level_4, Level_5, Level_6, Level_7, Level_8, Level_9, Level_10}
+    public static GameScreens currentScreen;
 
-    public GameScreens currentScreen;
+    public static GameScreens GameScreen
+    {
+        get
+        {
+            return currentScreen;
+        }
+        set
+        {
+            currentScreen = value;
+        }
+    }
 
     private void Start()
     {
@@ -17,18 +27,26 @@ public class GameManager : MonoBehaviour
     {
         switch (currentScreen)
         {
+            case GameScreens.MainMenu:
+                AudioManager.Instance.PlayMusic(0);
+                currentScreen = GameScreens.o;
+                break;
             case GameScreens.Level_1:
-
+                AudioManager.Instance.PlayMusic(1);
+                currentScreen = GameScreens.o;
                 break;
             case GameScreens.Level_2:
-
+                AudioManager.Instance.PlayMusic(2);
+                currentScreen = GameScreens.o;
                 break;
             case GameScreens.Level_3:
-
+                AudioManager.Instance.PlayMusic(3);
+                currentScreen = GameScreens.o;
                 break;
-            case GameScreens.Level_4:
-
+            case GameScreens.o:
                 break;
         }
     }
 }
+
+public enum GameScreens { MainMenu, Level_1, Level_2, Level_3, o}

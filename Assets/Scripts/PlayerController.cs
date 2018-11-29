@@ -55,11 +55,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.WakeUp();
         }
-    //    if(transform.position.y <= -5)
-    //    {
-    //        StopCoroutine(Move());
-    //        StartCoroutine(Move());
-    //    }
     }
 
         
@@ -83,7 +78,7 @@ public class PlayerController : MonoBehaviour
         {
             reactObj = collision.collider.GetComponent<IReactableObject>();
             reactObj.React();
-            UIManager.ModifyDeathText(PlayerInfo.TotalDeaths);
+            UIManager.Instance.ModifyDeathText(PlayerInfo.TotalDeaths);
             StopCoroutine(Move());
             StartCoroutine(Move());
         }
@@ -95,7 +90,7 @@ public class PlayerController : MonoBehaviour
         {
             reactObj = other.GetComponent<IReactableObject>();
             reactObj.React();
-            UIManager.ModifyCollectablesText(PlayerInfo.TotalCubies, PlayerInfo.TotalStars);
+            UIManager.Instance.ModifyCollectablesText(PlayerInfo.TotalCubies, PlayerInfo.TotalStars);
         }
     }
     
