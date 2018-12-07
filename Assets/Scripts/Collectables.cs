@@ -12,9 +12,12 @@ public class Collectables : MonoBehaviour, IReactableObject
         {
             PlayerInfo.TotalStars += 1;
         }
-        else if (gameObject.CompareTag("Cubie"))
-        {
-            PlayerInfo.TotalCubies += 1;
-        }
+
+        if (gameObject.name == "Star1")
+            UIManager.Instance.ChangeScene("Level 2");
+        if (gameObject.name == "Star2")
+            UIManager.Instance.ChangeScene("Level 3");
+        if (gameObject.name == "Star3")
+            UIManager.Instance.ChangeScene("Credits");
     }
 }

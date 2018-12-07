@@ -8,18 +8,6 @@ public class PlayerInfo
     private static int totalStars;
     private static int totalDeaths;
 
-    public static int TotalCubies
-    {
-        get
-        {
-            return totalCubies;
-        }
-        set
-        {
-            totalCubies = value;
-        }
-    }
-
     public static int TotalStars
     {
         get
