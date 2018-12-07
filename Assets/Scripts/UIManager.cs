@@ -8,13 +8,8 @@ public class UIManager : Singleton<UIManager>
 {
     Text starText;
     Text deathText;
-    [SerializeField]
     Slider musicSlider;
     Slider fXSlider;
-    GameObject musicOff;
-    GameObject musicOn;
-    GameObject effectsOff;
-    GameObject effectsOn;
     GameObject optionsPanel;
 
     public Slider MusicSlider
@@ -25,7 +20,7 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
-    public Slider FXLider
+    public Slider FXSLider
     {
         get
         {
@@ -37,6 +32,7 @@ public class UIManager : Singleton<UIManager>
     {
         if (GameObject.Find("TotalStars") != null)
             starText = GameObject.Find("TotalStars").GetComponent<Text>();
+
         if (GameObject.Find("TotalDeaths") != null)
             deathText = GameObject.Find("TotalDeaths").GetComponent<Text>();
 
@@ -46,22 +42,6 @@ public class UIManager : Singleton<UIManager>
         if (GameObject.Find("FXSlider") != null)
             fXSlider = GameObject.Find("FXSlider").GetComponent<Slider>();
 
-        if (GameObject.Find("MusicOff") != null)
-        {
-            musicOff = GameObject.Find("MusicOff");
-            musicOff.SetActive(false);
-        }
-        if (GameObject.Find("MusicOn") != null)
-            musicOn = GameObject.Find("MusicOn");
-
-        if (GameObject.Find("EffectsOff") != null)
-        {
-            effectsOff = GameObject.Find("EffectsOff");
-            effectsOff.SetActive(false);
-        }
-        if (GameObject.Find("EffectsOn") != null)
-            effectsOn = GameObject.Find("EffectsOn");
-
         if (GameObject.Find("OptionsPanel") != null)
         {
             optionsPanel = GameObject.Find("OptionsPanel");
@@ -69,7 +49,13 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
-    public void ModifyCollectablesText(int amountCubies, int amountStars)
+    private void Start()
+    {
+        //musicSlider.value = Settings.MusicVolume;
+        //fXSlider.value = Settings.FXVolume;
+    }
+
+    public void ModifyCollectablesText(int amountStars)
     {
         starText.text = amountStars.ToString();
     }
@@ -104,7 +90,8 @@ public class UIManager : Singleton<UIManager>
             GameManager.GameScreen = GameScreens.Level_2;
         else if (sceneToLoad.Contains("3"))
             GameManager.GameScreen = GameScreens.Level_3;
-
+        else if (sceneToLoad.Contains("Credits"))
+            GameManager.GameScreen = GameScreens.Credits;
     }
 
     public void ExitGame()
@@ -114,35 +101,32 @@ public class UIManager : Singleton<UIManager>
 
     public void MusicSliderModification()
     {
-        if (musicSlider.value == 0)
-        {
-            ActiveDesactiveUIObjects(musicOff);
-            ActiveDesactiveUIObjects(musicOn);
-        }
-        else if (musicSlider.value > 0)
-        {
-            if (!musicOn.gameObject.activeInHierarchy)
-            {
-                ActiveDesactiveUIObjects(musicOff);
-                ActiveDesactiveUIObjects(musicOn);
-            }
-        }
+        Settings.MusicVolume = musicSlider.value;
+        AudioManager.Instance.ChangeVolume();
     }
 
     public void FXSliderModification()
     {
-        if (fXSlider.value == 0)
+        Settings.FXVolume = fXSlider.value;
+        AudioManager.Instance.ChangeVolume();
+        AudioManager.Instance.PlayButtonSound();
+    }
+
+    public void MuteAudio(bool i)
+    {
+        if (i)
         {
-            ActiveDesactiveUIObjects(effectsOff);
-            ActiveDesactiveUIObjects(effectsOn);
+            if (musicSlider.value != 0)
+                musicSlider.value = 0;
+            else
+                musicSlider.value = .5f;
         }
-        else if (fXSlider.value > 0)
+        else
         {
-            if (!effectsOn.gameObject.activeInHierarchy)
-            {
-                ActiveDesactiveUIObjects(effectsOff);
-                ActiveDesactiveUIObjects(effectsOn);
-            }
+            if (fXSlider.value != 0)
+                fXSlider.value = 0;
+            else
+                fXSlider.value = .5f;
         }
     }
 }

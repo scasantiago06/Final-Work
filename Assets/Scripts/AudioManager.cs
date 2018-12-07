@@ -39,6 +39,12 @@ public class AudioManager : Singleton<AudioManager>
         PlayMusic(0);
     }
 
+    public void ChangeVolume()
+    {
+        audioSources[0].volume = Settings.MusicVolume;
+        audioSources[1].volume = Settings.FXVolume;
+    }
+
     public void PlayMusic(int scene)
     {
         switch (scene)
@@ -63,9 +69,4 @@ public class AudioManager : Singleton<AudioManager>
     {
         audioSources[1].Play();
     }
-
-    //public void ModifyVolume()
-    //{
-    //    audioSources[0].volume = UIManager.Instance.MusicSlider.value;
-    //}
 }

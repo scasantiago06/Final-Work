@@ -90,7 +90,12 @@ public class PlayerController : MonoBehaviour
         {
             reactObj = other.GetComponent<IReactableObject>();
             reactObj.React();
-            UIManager.Instance.ModifyCollectablesText(PlayerInfo.TotalCubies, PlayerInfo.TotalStars);
+            UIManager.Instance.ModifyCollectablesText(PlayerInfo.TotalStars);
+        }
+        if (other.name == "CheckPoint")
+        {
+            spawn.position = other.transform.position;
+            other.gameObject.SetActive(false);
         }
     }
     

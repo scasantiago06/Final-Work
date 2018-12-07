@@ -29,24 +29,24 @@ public class GameManager : Singleton<GameManager>
         {
             case GameScreens.MainMenu:
                 AudioManager.Instance.PlayMusic(0);
-                currentScreen = GameScreens.o;
+                currentScreen = GameScreens.Default;
                 break;
             case GameScreens.Level_1:
                 AudioManager.Instance.PlayMusic(1);
-                currentScreen = GameScreens.o;
+                currentScreen = GameScreens.Default;
                 break;
             case GameScreens.Level_2:
                 AudioManager.Instance.PlayMusic(2);
-                currentScreen = GameScreens.o;
+                currentScreen = GameScreens.Default;
                 break;
             case GameScreens.Level_3:
                 AudioManager.Instance.PlayMusic(3);
-                currentScreen = GameScreens.o;
+                currentScreen = GameScreens.Default;
                 break;
-            case GameScreens.o:
+            case GameScreens.Default:
                 break;
         }
     }
 }
 
-public enum GameScreens { MainMenu, Level_1, Level_2, Level_3, o}
+public enum GameScreens { MainMenu, Level_1, Level_2, Level_3, Credits, Default}
