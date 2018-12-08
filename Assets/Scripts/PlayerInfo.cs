@@ -8,6 +8,9 @@ public class PlayerInfo
     private static int totalStars;
     private static int totalDeaths;
 
+    /// <summary>
+    /// This property return the variable totalStars for be used and modified
+    /// </summary> 
     public static int TotalStars
     {
         get
@@ -20,6 +23,9 @@ public class PlayerInfo
         }
     }
 
+    /// <summary>
+    /// This property return the variable totalStars for be used and modified
+    /// </summary> 
     public static int TotalDeaths
     {
         get
