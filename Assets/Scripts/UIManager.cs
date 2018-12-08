@@ -12,6 +12,9 @@ public class UIManager : Singleton<UIManager>
     Slider fXSlider;
     GameObject optionsPanel;
 
+    /// <summary>
+    /// A property for return the music slider
+    /// </summary>   
     public Slider MusicSlider
     {
         get
@@ -20,6 +23,9 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    /// <summary>
+    /// A property for return the effects slider
+    /// </summary>   
     public Slider FXSLider
     {
         get
@@ -28,6 +34,9 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    /// <summary>
+    /// Here are initialize all the variables that need find the object
+    /// </summary>   
     private void Awake()
     {
         if (GameObject.Find("TotalStars") != null)
@@ -49,22 +58,29 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
-    private void Start()
-    {
-        //musicSlider.value = Settings.MusicVolume;
-        //fXSlider.value = Settings.FXVolume;
-    }
-
+    /// <summary>
+    /// this function is used to modify the text that shows the total number of stars collected 
+    /// </summary> 
+    /// <param name="amountStars"></param>
     public void ModifyCollectablesText(int amountStars)
     {
         starText.text = amountStars.ToString();
     }
 
+    /// <summary>
+    /// this function is used to modify the text that shows the total deaths 
+    /// </summary> 
+    /// <param name="amountStars"></param>
     public void ModifyDeathText(int amountDeaths)
     {
         deathText.text = amountDeaths.ToString();
     }
 
+    /// <summary>
+    /// this function is used to active and desactive the object passed as parameter and play 
+    /// the sound of the button
+    /// </summary> 
+    /// <param name="UIObject"></param>
     public void ActiveDesactiveUIObjects(GameObject UIObject)
     {
         AudioManager.Instance.PlayButtonSound();
@@ -78,6 +94,11 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    /// <summary>
+    /// this function is used to load the scene passed as a parameter 
+    /// the sound of the button
+    /// </summary> 
+    /// <param name="sceneToLoad"></param>
     public void ChangeScene(string sceneToLoad)
     {
         SceneManager.LoadScene(sceneToLoad);
@@ -94,17 +115,26 @@ public class UIManager : Singleton<UIManager>
             GameManager.GameScreen = GameScreens.Credits;
     }
 
+    /// <summary>
+    /// This function is responsible to quit the game when is called
+    /// </summary> 
     public void ExitGame()
     {
         Application.Quit();
     }
 
+    /// <summary>
+    /// This function modify the slider and call the method for change the volume
+    /// </summary> 
     public void MusicSliderModification()
     {
         Settings.MusicVolume = musicSlider.value;
         AudioManager.Instance.ChangeVolume();
     }
 
+    /// <summary>
+    /// This function modify the slider and call the method for change the volume
+    /// </summary> 
     public void FXSliderModification()
     {
         Settings.FXVolume = fXSlider.value;
@@ -112,6 +142,9 @@ public class UIManager : Singleton<UIManager>
         AudioManager.Instance.PlayButtonSound();
     }
 
+    /// <summary>
+    /// This function is not used
+    /// </summary> 
     public void MuteAudio(bool i)
     {
         if (i)
