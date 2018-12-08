@@ -9,6 +9,9 @@ public class TranslationScript : MonoBehaviour
     public float movementRate;
     private float moveTimer;
 
+    /// <summary>
+    /// The update is used for move the object that contains this script constantly
+    /// </summary>
     private void Update()
     {
         moveTimer += Time.deltaTime;
