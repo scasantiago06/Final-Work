@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     static PlayerStates playerState;
     IReactableObject reactObj;
 
+    /// <summary>
+    /// This property return a variable responsible for save the player position
+    /// </summary>
     public static Vector3 Pos
     {
         get
@@ -23,6 +26,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This property return a variable responsible for save the player states
+    /// </summary>
     public static PlayerStates States
     {
         get
@@ -35,6 +41,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Some variables are initialized in the function
+    /// </summary>
     void Awake()
     {
         spawn = GameObject.Find("Spawn").transform;
@@ -42,6 +51,9 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Is assigned the initial State and the transform variable, and is called a corountine
+    /// </summary>
     private void Start()
     {
         playerState = PlayerStates.Die;
@@ -49,6 +61,9 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(Move());
     }
 
+    /// <summary>
+    /// The rigidbody is wake up constantly
+    /// </summary>
     private void Update()
     {
         if(rb.IsSleeping())
@@ -57,8 +72,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-        
-
+    /// <summary>
+    /// The FixedUpdate controls the movement whit the rigidbody, adding force to the player at the
+    /// corresponding addres
+    /// </summary>     
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -72,6 +89,9 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movement * speed);
     }
 
+    /// <summary>
+    /// In this function is verified the player collision with an obstacle
+    /// </summary>   
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.GetComponent<IReactableObject>() != null)
@@ -84,6 +104,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// In this function is verified the player collision with a star
+    /// </summary>   
     private void OnTriggerEnter(Collider other)
     {
         if(other.GetComponent<IReactableObject>() != null)
@@ -99,6 +122,9 @@ public class PlayerController : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// This coroutine keep the player in a position when dies while controlling the momentum
+    /// </summary>   
     IEnumerator Move()
     {
         yield return new WaitForSeconds(1);
@@ -106,6 +132,9 @@ public class PlayerController : MonoBehaviour
     }
 }
 
+/// <summary>
+/// An enum for the player states
+/// </summary>   
 public enum PlayerStates
 {
     Moving,
