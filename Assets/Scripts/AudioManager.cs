@@ -10,7 +10,9 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField]
     //audioClip[0] for MainMenu music, audioClip[1] for Level 1 music, audioClip[2] for Level 2 music, audioClip[3] for Level 3 music, audioClip[4] for press button sound
     AudioClip[] audioClips;
-
+    /// <summary>
+    /// I initialize the audiosources and audio clips that I will need
+    /// </summary>
     private void Start()
     {
         audioSources = new AudioSource[2];
@@ -39,12 +41,19 @@ public class AudioManager : Singleton<AudioManager>
         PlayMusic(0);
     }
 
+    /// <summary>
+    /// To change the volume of the audiosources
+    /// </summary>
     public void ChangeVolume()
     {
         audioSources[0].volume = Settings.MusicVolume;
         audioSources[1].volume = Settings.FXVolume;
     }
 
+    /// <summary>
+    /// Here i assign the correspondent audioClip to audioSources
+    /// </summary>
+    /// <param name="scene"></param>
     public void PlayMusic(int scene)
     {
         switch (scene)
@@ -65,6 +74,9 @@ public class AudioManager : Singleton<AudioManager>
         audioSources[0].Play();
     }
 
+    /// <summary>
+    /// This function is called when a button is pressed
+    /// </summary>
     public void PlayButtonSound()
     {
         audioSources[1].Play();
