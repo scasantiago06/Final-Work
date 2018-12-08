@@ -19,7 +19,9 @@ public class ScalingScript : MonoBehaviour
         endScale = new Vector3(transform.localScale.x + 0.1f, transform.localScale.y + 0.1f, transform.localScale.z + 0.1f);
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// The update is used for scale the object that contains this script constantly
+    /// </summary>
     void Update ()
     {     
         scaleTimer += Time.deltaTime;
