@@ -24,7 +24,7 @@ public class PlayerInfo
     }
 
     /// <summary>
-    /// This property return the variable totalStars for be used and modified
+    /// This property return the variable totalDeaths for be used and modified
     /// </summary> 
     public static int TotalDeaths
     {
