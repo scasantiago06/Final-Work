@@ -7,7 +7,9 @@ public class RotationScript : MonoBehaviour
     public bool isRotating = true;
     public float rotationSpeed;
 
-    // Update is called once per frame
+    /// <summary>
+    /// The update is used for rotate the object that contains this script constantly
+    /// </summary>
     void Update ()
     {
         if (isRotating)
