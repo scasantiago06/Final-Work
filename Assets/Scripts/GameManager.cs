@@ -5,7 +5,10 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public static GameScreens currentScreen;
-
+    
+    /// <summary>
+    /// This property return a variable that is responsible to save the current screen
+    /// </summary>
     public static GameScreens GameScreen
     {
         get
@@ -18,11 +21,18 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    /// <summary>
+    /// In the Start Function i assign the "currentScreen" variable
+    /// </summary>
     private void Start()
     {
         currentScreen = GameScreens.MainMenu;
     }
 
+    /// <summary>
+    /// In the "Update" Function is controlled the music that it will be reproduced
+    /// according to the game scene
+    /// </summary>
     private void Update()
     {
         switch (currentScreen)
