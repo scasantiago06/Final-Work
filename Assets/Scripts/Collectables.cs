@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Collectables : MonoBehaviour, IReactableObject
 {
+    /// <summary>
+    /// This function is called when the player collides whit the star for desactive it
+    /// and add one to the counter
+    /// </summary>
     public void React()
     {
         gameObject.SetActive(false);
