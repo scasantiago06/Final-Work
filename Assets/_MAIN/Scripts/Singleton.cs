@@ -34,14 +34,12 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         Instance = this as T;
-        Init();
     }
 
     /// <summary>
     /// Allows each class inheriting from Singleton class to use the Awake function
     /// </summary>
-    protected virtual void Init(){}
 }

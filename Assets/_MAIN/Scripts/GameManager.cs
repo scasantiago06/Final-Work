@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : MonoBehaviour
 {
     public static GameScreens currentScreen;
     
@@ -19,6 +17,28 @@ public class GameManager : Singleton<GameManager>
         {
             currentScreen = value;
         }
+    }
+
+    // Singleton!
+    public static GameManager Instance
+    {
+        get; private set;
+    }
+
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            DestroyImmediate(this);
+            return;
+        }
+        else
+            Instance = this;
+
+
+        DontDestroyOnLoad(this);
+
     }
 
     /// <summary>
