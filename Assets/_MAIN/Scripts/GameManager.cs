@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
         get; private set;
     }
 
-
     private void Awake()
     {
         if (Instance != null)
@@ -36,9 +35,7 @@ public class GameManager : MonoBehaviour
         else
             Instance = this;
 
-
         DontDestroyOnLoad(this);
-
     }
 
     /// <summary>
@@ -46,14 +43,14 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        currentScreen = GameScreens.MainMenu;
+        //currentScreen = GameScreens.MainMenu;
     }
 
     /// <summary>
     /// In the "Update" Function is controlled the music that it will be reproduced
     /// according to the game scene
     /// </summary>
-    private void Update()
+    public void ChangeMusic()
     {
         switch (currentScreen)
         {

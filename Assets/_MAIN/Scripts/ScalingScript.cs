@@ -29,27 +29,19 @@ public class ScalingScript : MonoBehaviour
         if (isScaling)
         {
             if (scalingUp)
-            {
                 transform.localScale = Vector3.Lerp(transform.localScale, endScale, scaleSpeed * Time.deltaTime);
-            }
             else if (!scalingUp)
-            {
                 transform.localScale = Vector3.Lerp(transform.localScale, startScale, scaleSpeed * Time.deltaTime);
-            }
 
             if(scaleTimer >= scaleRate)
             {
                 if (scalingUp)
-                {
                     scalingUp = false;
-                }
                 else if (!scalingUp)
-                {
                     scalingUp = true;
-                }
+
                 scaleTimer = 0;
             }
         }
-        
 	}
 }

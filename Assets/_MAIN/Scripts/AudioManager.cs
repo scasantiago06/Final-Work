@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
-    [SerializeField]
     //audioSources[0] for Music, audioSource[1] for FX
-    AudioSource[] audioSources;
     [SerializeField]
+    AudioSource[] audioSources;
+
     //audioClip[0] for MainMenu music, audioClip[1] for Level 1 music, audioClip[2] for Level 2 music, audioClip[3] for Level 3 music, audioClip[4] for press button sound
+    [SerializeField]
     AudioClip[] audioClips;
+
     /// <summary>
     /// I initialize the audiosources and audio clips that I will need
     /// </summary>
@@ -71,7 +73,9 @@ public class AudioManager : Singleton<AudioManager>
                 audioSources[0].clip = audioClips[3];
                 break;
         }
+
         audioSources[0].Play();
+
         Debug.Log("Play music");
     }
 

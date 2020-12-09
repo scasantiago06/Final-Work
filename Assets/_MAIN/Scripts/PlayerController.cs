@@ -6,9 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     public static Transform spawn;
     static Transform playerTransform;
+
     private Rigidbody rb;
+
     public float speed;
+
     static PlayerStates playerState;
+
     IReactableObject reactObj;
 
     /// <summary>
@@ -47,8 +51,8 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         spawn = GameObject.Find("Spawn").transform;
+
         rb = GetComponent<Rigidbody>();
-        
     }
 
     /// <summary>
@@ -57,7 +61,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         playerState = PlayerStates.Die;
+
         playerTransform = transform;
+
         StartCoroutine(Move());
     }
 
@@ -67,9 +73,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if(rb.IsSleeping())
-        {
             rb.WakeUp();
-        }
     }
 
     /// <summary>
@@ -98,7 +102,9 @@ public class PlayerController : MonoBehaviour
         {
             reactObj = collision.collider.GetComponent<IReactableObject>();
             reactObj.React();
+
             UIManager.Instance.ModifyDeathText(PlayerInfo.TotalDeaths);
+
             StopCoroutine(Move());
             StartCoroutine(Move());
         }
@@ -113,11 +119,13 @@ public class PlayerController : MonoBehaviour
         {
             reactObj = other.GetComponent<IReactableObject>();
             reactObj.React();
+
             UIManager.Instance.ModifyCollectablesText(PlayerInfo.TotalStars);
         }
         if (other.name == "CheckPoint")
         {
             spawn.position = other.transform.position;
+
             other.gameObject.SetActive(false);
         }
     }
@@ -128,6 +136,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Move()
     {
         yield return new WaitForSeconds(1);
+
         playerState = PlayerStates.Moving;
     }
 }

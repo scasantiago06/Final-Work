@@ -46,18 +46,16 @@ public class UIManager : Singleton<UIManager>
     {
         starText = GameObject.Find("TotalStars")?.GetComponent<Text>();
 
-        if (GameObject.Find("TotalDeaths") != null)
-            deathText = GameObject.Find("TotalDeaths").GetComponent<Text>();
+        deathText = GameObject.Find("TotalDeaths")?.GetComponent<Text>();
 
-        if (GameObject.Find("MusicSlider") != null)
-            musicSlider = GameObject.Find("MusicSlider").GetComponent<Slider>();
+        musicSlider = GameObject.Find("MusicSlider")?.GetComponent<Slider>();
 
-        if (GameObject.Find("FXSlider") != null)
-            fXSlider = GameObject.Find("FXSlider").GetComponent<Slider>();
+        fXSlider = GameObject.Find("FXSlider")?.GetComponent<Slider>();
 
         if (GameObject.Find("OptionsPanel") != null)
         {
             optionsPanel = GameObject.Find("OptionsPanel");
+
             optionsPanel.SetActive(false);
         }
     }
@@ -88,14 +86,11 @@ public class UIManager : Singleton<UIManager>
     public void ActiveDesactiveUIObjects(GameObject UIObject)
     {
         AudioManager.Instance.PlayButtonSound();
+
         if (UIObject.activeInHierarchy)
-        {
             UIObject.SetActive(false);
-        }
         else
-        {
             UIObject.SetActive(true);
-        }
     }
 
     /// <summary>
@@ -117,6 +112,8 @@ public class UIManager : Singleton<UIManager>
             GameManager.GameScreen = GameScreens.Level_3;
         else if (sceneToLoad.Contains("Credits"))
             GameManager.GameScreen = GameScreens.Credits;
+
+        GameManager.Instance.ChangeMusic();
     }
 
     /// <summary>
@@ -133,6 +130,7 @@ public class UIManager : Singleton<UIManager>
     public void MusicSliderModification()
     {
         Settings.MusicVolume = musicSlider.value;
+
         AudioManager.Instance.ChangeVolume();
     }
 
@@ -142,6 +140,7 @@ public class UIManager : Singleton<UIManager>
     public void FXSliderModification()
     {
         Settings.FXVolume = fXSlider.value;
+
         AudioManager.Instance.ChangeVolume();
         AudioManager.Instance.PlayButtonSound();
     }

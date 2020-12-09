@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {	
-
     /// <summary>
     /// The Update function is responsible to keep the camera on top of the character
     /// </summary>

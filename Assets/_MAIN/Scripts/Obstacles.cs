@@ -11,6 +11,7 @@ public class Obstacles : MonoBehaviour, IReactableObject
     {
         PlayerController.Pos = PlayerController.spawn.position;
         PlayerController.States = PlayerStates.Die;
+
         PlayerInfo.TotalDeaths += 1;
     }
 }
