@@ -72,6 +72,7 @@ public class AudioManager : Singleton<AudioManager>
                 break;
         }
         audioSources[0].Play();
+        Debug.Log("Play music");
     }
 
     /// <summary>

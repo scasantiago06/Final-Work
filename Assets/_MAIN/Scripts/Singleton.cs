@@ -4,7 +4,7 @@
 /// Class inherited by each class that restricts the instantiation of a it to one object.
 /// </summary>
 /// <typeparam name="T">Specific class that will implement the singleton</typeparam>
-public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
+public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T instance;
 

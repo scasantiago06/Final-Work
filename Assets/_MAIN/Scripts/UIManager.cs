@@ -37,10 +37,14 @@ public class UIManager : Singleton<UIManager>
     /// <summary>
     /// Here are initialize all the variables that need find the object
     /// </summary>   
-    private void Awake()
+    override protected void Awake()
     {
-        if (GameObject.Find("TotalStars") != null)
-            starText = GameObject.Find("TotalStars").GetComponent<Text>();
+        base.Awake();
+    }
+
+    private void Update()
+    {
+        starText = GameObject.Find("TotalStars")?.GetComponent<Text>();
 
         if (GameObject.Find("TotalDeaths") != null)
             deathText = GameObject.Find("TotalDeaths").GetComponent<Text>();
